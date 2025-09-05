@@ -1,67 +1,282 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LatAm Gateway — B2B Sales & Expansion Partner</title>
+  <meta name="description" content="Aceleramos ventas B2B y expansión internacional en Latinoamérica combinando red comercial, negociación senior e IA. De la primera reunión al contrato firmado." />
+
+  <!-- Favicon (opcional, cuando lo tengas súbelo como favicon.ico a la raíz) -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Fuente elegante y profesional -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
   <style>
-    body{font-family:Arial, sans-serif;margin:0;padding:0;background:#f5f7fa;color:#222;}
-    header,section,footer{padding:40px 20px;}
-    header{background:#fff;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,.1);}
-    h1{margin:10px 0;font-size:28px;}
-    h2{margin-top:30px;color:#444;}
-    table{width:100%;border-collapse:collapse;margin:20px 0;}
-    th,td{border:1px solid #ccc;padding:10px;text-align:left;}
-    th{background:#eee;}
-    .wrap{max-width:900px;margin:auto;}
-    .muted{color:var(--sub)}
-    footer{text-align:center;font-size:14px;background:#fff;border-top:1px solid #ddd;}
+    :root{
+      --bg:#0b0f17;         /* fondo profundo */
+      --card:#0f1624;       /* cartas */
+      --ink:#e6f1ff;        /* texto principal */
+      --muted:#9ab0c7;      /* texto secundario */
+      --line:#22304a;       /* bordes suaves */
+      --brand:#00d1b2;      /* acento (turquesa) */
+      --brand2:#3e8ef7;     /* acento secundario (azul) */
+      --glow: 0 10px 30px rgba(0,209,178,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:radial-gradient(1200px 800px at 10% -10%, rgba(0,209,178,.12), transparent 55%),
+                           radial-gradient(900px 700px at 100% 0%, rgba(62,142,247,.12), transparent 50%),
+                           var(--bg);
+      color:var(--ink); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; line-height:1.6;
+    }
+    a{color:var(--brand)}
+    .wrap{max-width:1180px; margin:0 auto; padding:0 20px}
+
+    /* ===== Hero ===== */
+    header.hero{position:relative; overflow:hidden}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:20px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand img{width:44px; height:44px; object-fit:contain; filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+    .brand .name{font-weight:700; letter-spacing:.2px}
+    .cta-btn{appearance:none; border:0; border-radius:14px; padding:12px 18px; background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff; font-weight:700; cursor:pointer; box-shadow:var(--glow); transition:transform .2s ease, box-shadow .2s ease}
+    .cta-btn:hover{transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,209,178,.35)}
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; padding:36px 0 24px}
+    .badge{display:inline-flex; align-items:center; gap:10px; font-size:14px; padding:8px 12px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:rgba(255,255,255,.03)}
+    h1{font-size:44px; line-height:1.15; margin:14px 0 10px}
+    .lead{font-size:18px; color:var(--muted); max-width:640px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid var(--line); border-radius:18px; padding:18px}
+    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px}
+    .kpis .k{background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:12px; padding:12px}
+    .k .n{font-weight:800; font-size:20px}
+    .k .t{color:var(--muted); font-size:13px}
+
+    /* ===== Secciones ===== */
+    section{padding:56px 0}
+    h2{font-size:28px; margin:0 0 14px}
+    .muted{color:var(--muted)}
+
+    /* Grid de features */
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid var(--line); border-radius:18px; padding:18px}
+    .card h3{margin:0 0 6px}
+    .tag{display:inline-block; background:rgba(255,255,255,.06); border:1px solid var(--line); color:var(--muted); padding:4px 10px; border-radius:999px; font-size:12px; margin:0 6px 6px 0}
+
+    /* Tabla elegante */
+    .table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:14px; border:1px solid var(--line)}
+    .table th, .table td{padding:12px 14px; border-bottom:1px solid var(--line)}
+    .table th{background:rgba(255,255,255,.06); text-align:left}
+    .table tr:last-child td{border-bottom:0}
+
+    /* Testimonios */
+    .quotes{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+    .quote{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid var(--line); border-radius:18px; padding:18px; position:relative}
+    .quote:before{content:'\201C'; position:absolute; top:-20px; left:10px; font-size:64px; color:rgba(255,255,255,.08);}
+
+    /* CTA final */
+    .cta{display:flex; align-items:center; justify-content:space-between; gap:16px; background:linear-gradient(135deg, rgba(0,209,178,.15), rgba(62,142,247,.15)); border:1px solid var(--line); border-radius:18px; padding:24px}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line); background:rgba(0,0,0,.25); padding:26px 0}
+
+    /* Responsivo */
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .quotes{grid-template-columns:1fr}
+    }
+
+    /* Animaciones sutiles */
+    .fade-up{opacity:0; transform:translateY(10px); animation:fadeUp .7s ease-out .15s forwards}
+    @keyframes fadeUp{to{opacity:1; transform:translateY(0)}}
   </style>
 </head>
 <body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <!-- IMPORTANTE: sube logo-abraxas.png a la raíz del repo -->
+          <img src="logo-abraxas.png" alt="Abraxas Group Logo" />
+          <div class="name">Abraxas Group</div>
+        </div>
+        <a class="cta-btn" href="mailto:o.chinchilla@servicioslegalesmineros.com?subject=LatAm%20Gateway%20-%20Discovery">Agendar discovery</a>
+      </div>
 
-<header>
-  <div class="wrap">
-    <img src="logo-abraxas.png" alt="Abraxas Group Logo" style="width:160px; margin-bottom:20px;">
-    <h1>LatAm Gateway — B2B Sales & Expansion Partner</h1>
-    <p>Aceleramos ventas B2B y expansión internacional en Latinoamérica combinando red comercial, negociación senior e inteligencia artificial.</p>
-  </div>
-</header>
+      <div class="hero-grid">
+        <div class="fade-up">
+          <div class="badge">Brochure · ES / EN</div>
+          <h1>LatAm Gateway — B2B Sales & Expansion Partner</h1>
+          <p class="lead">Aceleramos ventas B2B y expansión internacional en Latinoamérica combinando <b>red comercial</b>, <b>negociación senior</b> y <b>automatización con IA</b>. De la primera reunión al contrato firmado.</p>
+          <div style="display:flex; gap:10px; margin-top:16px">
+            <a class="cta-btn" href="#planes">Ver planes</a>
+            <a class="cta-btn" style="background:linear-gradient(135deg,var(--brand2),var(--brand));" href="#sectores">Sectores</a>
+          </div>
+        </div>
+        <div class="hero-card fade-up">
+          <div class="muted">Indicadores de entrega</div>
+          <div class="kpis">
+            <div class="k"><div class="n">12–16</div><div class="t">reuniones/mes</div></div>
+            <div class="k"><div class="n">+40</div><div class="t">leads calificados</div></div>
+            <div class="k"><div class="n">3–5</div><div class="t">cierres/trim</div></div>
+          </div>
+          <div style="margin-top:12px" class="muted">Modelo: <b>retainer + success fee</b> · Playbook <b>30·60·90</b> · Documentación <b>LOI/MOU/NCNDA</b></div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<section class="section">
-  <div class="wrap">
-    <h2>Propuesta de Valor</h2>
-    <p>Puenteamos tu oferta con decisores reales en LATAM y te acompañamos hasta cierre. 
-    Modelo flexible: retainer + success fee. Servicios: sourcing, agenda ejecutiva, negociación, due diligence, playbooks 30·60·90, stack IA para prospección.</p>
+  <section id="valor">
+    <div class="wrap">
+      <h2>Propuesta de valor</h2>
+      <p class="muted">Te conectamos con decisores reales en LATAM y te acompañamos hasta <b>firma de contrato</b>. Operamos con integridad (KYC/AML), verificación de contraparte y due diligence práctico. Documentamos cada paso.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px">
+        <span class="tag">Sourcing & Apertura de canales</span>
+        <span class="tag">Agenda ejecutiva</span>
+        <span class="tag">Negociación</span>
+        <span class="tag">Due Diligence</span>
+        <span class="tag">Gestión LOI / MOU / NCNDA</span>
+        <span class="tag">Playbooks 30·60·90</span>
+        <span class="tag">Stack IA para prospección</span>
+      </div>
+    </div>
+  </section>
 
-    <h2>Sectores & Ofertas</h2>
-    <table>
-      <tr><th>Sector</th><th>Oferta</th></tr>
-      <tr><td>Automotriz & Repuestos</td><td>OEM / Aftermarket · distribuidores, flotas, homologaciones</td></tr>
-      <tr><td>Minería & Servicios</td><td>EPCM · insumos críticos · operadores & contratistas</td></tr>
-      <tr><td>Oil & Gas & Petroleras</td><td>Upstream, midstream, downstream · RFQ · compliance HSE</td></tr>
-      <tr><td>Recursos Humanos</td><td>O&G & Minería · talento técnico · staff rotativo</td></tr>
-      <tr><td>Agro: Químicos & Servicios</td><td>Distribuidores · agro-retail · soporte regulatorio · demos</td></tr>
-      <tr><td>Expansión Internacional</td><td>Market entry LATAM · socios locales · playbooks país</td></tr>
-    </table>
+  <section id="sectores">
+    <div class="wrap">
+      <h2>Sectores & ofertas</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Automotriz & Repuestos</h3>
+          <p class="muted">OEM / Aftermarket</p>
+          <ul>
+            <li>Desarrollo de distribuidores y mayoristas</li>
+            <li>Acuerdos con talleres/redes y flotas</li>
+            <li>Compliance básico e INCOTERMS</li>
+          </ul>
+          <div class="tag">12 reuniones/mes</div> <div class="tag">2 pilotos</div>
+        </div>
+        <div class="card">
+          <h3>Minería & Servicios</h3>
+          <p class="muted">EPCM · OPEX/MRO · Insumos & Contratistas</p>
+          <ul>
+            <li>Introducciones a operadores, contratistas y EPCM</li>
+            <li>RFI/RFQ para insumos críticos y servicios in‑site</li>
+            <li>Protocolos LOI/MOU/NCNDA · control de contraparte</li>
+          </ul>
+          <div class="tag">10 decisores/país</div>
+        </div>
+        <div class="card">
+          <h3>Oil & Gas & Petroleras</h3>
+          <p class="muted">Upstream · Midstream · Downstream</p>
+          <ul>
+            <li>Compras técnicas (válvulas, tuberías API, HSE)</li>
+            <li>Vinculación con contratistas y refinerías</li>
+            <li>Auditoría rápida de compliance & HSE proveedores</li>
+          </ul>
+          <div class="tag">8 RFQ activos/trim</div>
+        </div>
+        <div class="card">
+          <h3>Recursos Humanos (O&G & Minería)</h3>
+          <p class="muted">Perfiles técnicos · staff rotativo · formación HSE</p>
+          <ul>
+            <li>Búsqueda regional (ingenieros, geos, HSE)</li>
+            <li>Pools para turnos 14x14 / 7x7</li>
+            <li>Onboarding, certificaciones y partners de payroll</li>
+          </ul>
+          <div class="tag">15 candidatos validados/mes</div>
+        </div>
+        <div class="card">
+          <h3>Agro: Químicos & Servicios</h3>
+          <p class="muted">Distribuidores · Agro‑retail · Ensayos</p>
+          <ul>
+            <li>Mapa de distribuidores · acuerdos de canal</li>
+            <li>Soporte regulatorio básico (p.ej., SENASA)</li>
+            <li>Demos con productores ancla</li>
+          </ul>
+          <div class="tag">40 leads · 10 demos</div>
+        </div>
+        <div class="card">
+          <h3>Expansión Internacional</h3>
+          <p class="muted">Market Entry LATAM</p>
+          <ul>
+            <li>Playbook país (tamaño, pricing, competidores)</li>
+            <li>Socios locales: distribuidores, integradores, JV</li>
+            <li>Plan 30·60·90 con metas y pipeline</li>
+          </ul>
+          <div class="tag">Dossier por país</div> <div class="tag">15 reuniones/trim</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h2>Planes & Honorarios</h2>
-    <table>
-      <tr><th>Plan</th><th>Descripción</th><th>Honorarios</th></tr>
-      <tr><td>Starter</td><td>ICP + 30 cuentas target · 6–8 reuniones/mes · reporte quincenal</td><td>USD 1.500/mes + 3% success</td></tr>
-      <tr><td>Growth</td><td>Mapa de canal por país · 12–16 reuniones/mes · pilotos · due diligence básico</td><td>USD 3.000/mes + 4% success</td></tr>
-      <tr><td>Enterprise</td><td>Multi-país · KAM dedicado · OKRs · contratos marco</td><td>A convenir + 5% success</td></tr>
-    </table>
-  </div>
-</section>
+  <section id="planes">
+    <div class="wrap">
+      <h2>Planes & honorarios</h2>
+      <table class="table">
+        <thead>
+          <tr><th>Plan</th><th>Incluye</th><th>Honorarios</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Starter</b></td>
+            <td>ICP + 30 cuentas target · 6–8 reuniones/mes · Reporte quincenal</td>
+            <td>Desde USD 1.500/mes + 3% success</td>
+          </tr>
+          <tr>
+            <td><b>Growth</b></td>
+            <td>Mapa de canal por país · 12–16 reuniones/mes · Pilotos · Due diligence básico</td>
+            <td>Desde USD 3.000/mes + 4% success</td>
+          </tr>
+          <tr>
+            <td><b>Enterprise</b></td>
+            <td>Multi‑país · KAM dedicado · OKRs · Contratos marco</td>
+            <td>A convenir + 5% success</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="muted" style="font-size:13px">*Success fee aplicable a ingresos cerrados durante el engagement y periodo de tail acordado.</div>
+    </div>
+  </section>
 
-<footer>
-  <div class="wrap">
-    <p><b>Contacto</b><br>
-    Oscar Esteban Chinchilla — International Business Connector LATAM<br>
-    Email: <a href="mailto:o.chinchilla@servicioslegalesmineros.com">o.chinchilla@servicioslegalesmineros.com</a><br>
-    ¿Querés abrir mercado y cerrar contratos en LATAM? Agendemos un discovery de 30 minutos.</p>
-  </div>
-</footer>
+  <section id="prueba-social">
+    <div class="wrap">
+      <h2>Confianza & prueba social</h2>
+      <div class="quotes">
+        <div class="quote">
+          <p>“Oscar abrió puerta con decisores que intentamos alcanzar por meses. El pipeline apareció en semanas y los cierres llegaron antes de lo previsto.”</p>
+          <div class="muted">— COO, Proveedor O&G (LATAM)</div>
+        </div>
+        <div class="quote">
+          <p>“La mezcla de network senior y automatización con IA nos dio velocidad real sin perder calidad de conversaciones.”</p>
+          <div class="muted">— Director Comercial, EPCM Minería</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section id="cta">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2 style="margin:6px 0 4px">¿Listos para abrir mercado y cerrar contratos en LATAM?</h2>
+          <div class="muted">Agenda una llamada de diagnóstico de 30 minutos. Revisamos ICP, países objetivo y próximos pasos.</div>
+        </div>
+        <a class="cta-btn" href="mailto:o.chinchilla@servicioslegalesmineros.com?subject=LatAm%20Gateway%20-%20Discovery">Escribir ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <div>
+        <div style="font-weight:700">LatAm Gateway — B2B Sales & Expansion Partner</div>
+        <div class="muted" style="font-size:13px">Oscar Esteban Chinchilla · International Business Connector LATAM · <a href="mailto:o.chinchilla@servicioslegalesmineros.com">o.chinchilla@servicioslegalesmineros.com</a></div>
+      </div>
+      <div class="muted" style="font-size:12px">© Abraxas Group</div>
+    </div>
+  </footer>
 </body>
 </html>
+
