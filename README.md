@@ -1,6 +1,7 @@
 # LatAm Gateway — B2B Sales & Expansion Partner
 
-<img src="52CAF7D9-39A6-401C-92E6-84A8D6AE1C9D.png" ...
+<<img src="52CAF7D9-39A6-401C-92E6-84A8D6AE1C9D.png"
+" ...
 
 ## About
 
